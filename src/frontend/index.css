@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* MJD Healthcare — McKinsey/Bain consulting aesthetic */
+    /* Deep navy background system */
+    --background: 0.97 0.005 240;
+    --foreground: 0.12 0.025 255;
+    --card: 1 0 0;
+    --card-foreground: 0.12 0.025 255;
+    --popover: 1 0 0;
+    --popover-foreground: 0.12 0.025 255;
+
+    /* Navy as primary */
+    --primary: 0.175 0.045 255;
+    --primary-foreground: 0.98 0 0;
+
+    /* Light grey secondary */
+    --secondary: 0.94 0.005 240;
+    --secondary-foreground: 0.175 0.045 255;
+
+    /* Muted tones */
+    --muted: 0.94 0.005 240;
+    --muted-foreground: 0.48 0.02 240;
+
+    /* Gold/amber accent */
+    --accent: 0.72 0.12 75;
+    --accent-foreground: 0.12 0.025 255;
+
+    /* Destructive */
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    /* Borders and inputs */
+    --border: 0.87 0.01 240;
+    --input: 0.87 0.01 240;
+    --ring: 0.72 0.12 75;
+
+    /* Charts */
+    --chart-1: 0.72 0.12 75;
+    --chart-2: 0.42 0.09 195;
+    --chart-3: 0.175 0.045 255;
+    --chart-4: 0.62 0.14 85;
+    --chart-5: 0.52 0.11 195;
+
+    /* Sidebar */
+    --sidebar: 0.175 0.045 255;
+    --sidebar-foreground: 0.94 0.005 240;
+    --sidebar-primary: 0.72 0.12 75;
+    --sidebar-primary-foreground: 0.12 0.025 255;
+    --sidebar-accent: 0.22 0.045 255;
+    --sidebar-accent-foreground: 0.94 0.005 240;
+    --sidebar-border: 0.25 0.04 255;
+    --sidebar-ring: 0.72 0.12 75;
+
+    /* Border radius — sharp consulting aesthetic */
+    --radius: 0.25rem;
+
+    /* MJD Custom tokens */
+    --navy: 0.175 0.045 255;
+    --navy-dark: 0.12 0.03 255;
+    --navy-light: 0.22 0.05 255;
+    --gold: 0.72 0.12 75;
+    --gold-light: 0.82 0.1 80;
+    --gold-dark: 0.6 0.13 70;
+    --teal: 0.45 0.09 195;
+    --teal-light: 0.58 0.08 195;
+    --offwhite: 0.97 0.005 85;
+    --warm-grey: 0.93 0.008 240;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* MJD Custom Utilities */
+@layer utilities {
+  .font-serif {
+    font-family: 'Georgia', 'Times New Roman', serif;
+  }
+
+  .font-sans {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+
+  .text-navy {
+    color: oklch(var(--navy));
+  }
+
+  .text-gold {
+    color: oklch(var(--gold));
+  }
+
+  .text-teal {
+    color: oklch(var(--teal));
+  }
+
+  .bg-navy {
+    background-color: oklch(var(--navy));
+  }
+
+  .bg-navy-dark {
+    background-color: oklch(var(--navy-dark));
+  }
+
+  .bg-navy-light {
+    background-color: oklch(var(--navy-light));
+  }
+
+  .bg-gold {
+    background-color: oklch(var(--gold));
+  }
+
+  .bg-offwhite {
+    background-color: oklch(var(--offwhite));
+  }
+
+  .bg-warm-grey {
+    background-color: oklch(var(--warm-grey));
+  }
+
+  .border-gold {
+    border-color: oklch(var(--gold));
+  }
+
+  .border-navy {
+    border-color: oklch(var(--navy));
+  }
+
+  .border-teal {
+    border-color: oklch(var(--teal));
+  }
+
+  .hover\:bg-gold-dark:hover {
+    background-color: oklch(var(--gold-dark));
+  }
+
+  .hover\:text-gold:hover {
+    color: oklch(var(--gold));
+  }
+
+  /* Section divider */
+  .section-divider {
+    width: 3rem;
+    height: 2px;
+    background-color: oklch(var(--gold));
+    margin-bottom: 1.5rem;
+  }
+
+  /* Gold top border for cards */
+  .card-gold-top {
+    border-top: 3px solid oklch(var(--gold));
+  }
+
+  /* Navy gradient overlay */
+  .hero-overlay {
+    background: linear-gradient(
+      to bottom,
+      oklch(var(--navy-dark) / 0.75) 0%,
+      oklch(var(--navy-dark) / 0.65) 60%,
+      oklch(var(--navy-dark) / 0.8) 100%
+    );
+  }
+
+  /* Stat number styling */
+  .stat-number {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  /* Consulting label text */
+  .label-text {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+}
